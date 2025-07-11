@@ -1,8 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
 h2 {
     font-size: 30px;
 }
 
-h2 {
+h3 {
     font-size: 25px;
 }
 
@@ -18,15 +25,16 @@ p {
 
 .sidebar_left {
     width: 300px;
-    background-color: #0e52a0;
+    background-color: #1c1c1c;
     padding: 1rem;
+    /* border-right: 5px solid #8d0000; */
 }
 
 .sidebar_left img {
     display: block;
     margin: 0 auto;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -58,7 +66,6 @@ p {
 
 .profile-card {
     flex: 1;
-    background-color: #fff;
     padding: 1rem;
 }
 
@@ -75,8 +82,71 @@ p {
     align-items: center;
 }
 
+.company {
+    display: flex;
+    font-size: 20px;
+    color: #333;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .sidebar_right {
     width: 300px;
-    background-color: #0e52a0;
+    background-color: #1c1c1c;
     padding: 1rem;
+}
+
+.sidebar_right h2 {
+    color: #fff;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(60px, 1fr));
+    gap: 1rem;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e;
+    /* dark background for the button */
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* subtle shadow for depth */
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.tech-name {
+    color: #fff;
+    /* White text for dark mode */
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.tech-item:hover {
+    background-color: #333;
+    /* background-color: #c4c4c4; */
+    /* hover effect */
+    transform: scale(1.05);
+    /* slightly enlarge on hover */
+}
+
+.tech-item img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(200%) contrast(100%);
+    transition: filter 0.3s;
+}
+
+.tech-item:hover img {
+    filter: none;
+    /* remove grayscale on hover if you want */
 }
