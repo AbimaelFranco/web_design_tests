@@ -109,6 +109,7 @@ p {
 }
 
 .tech-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,4 +150,39 @@ p {
 .tech-item:hover img {
     filter: none;
     /* remove grayscale on hover if you want */
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    bottom: 110%;
+    /* Show above the icon */
+    background-color: #222;
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    width: 180px;
+    text-align: center;
+    z-index: 10;
+}
+
+.tech-item:hover .tooltip {
+    opacity: 1;
+}
+
+/* Optional: make it look like a speech bubble */
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #222 transparent transparent transparent;
 }
