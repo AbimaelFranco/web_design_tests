@@ -74,13 +74,46 @@ p {
     margin-bottom: 2rem;
 }
 
+.degree-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0;
+}
+
+.degree {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    /* Reduce space below the <h2> */
+    margin-bottom: 0.3rem;
+}
+
 .institution {
     display: flex;
     font-size: 20px;
     color: #333;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0;
 }
+
+.more-link {
+    font-size: 0.85rem;
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /* prevent line break */
+    white-space: nowrap;
+    text-align: left;
+}
+
+.more-link:hover {
+    color: #00aaff;
+    text-decoration: underline;
+}
+
 
 .company {
     display: flex;
