@@ -56,4 +56,19 @@ class Posts:
         blog_path = Path("folder") / blog_name
         post_filename = f"{post_title.replace(' ', '_')}.txt"
         return (blog_path / post_filename).exists()
+    
+    @staticmethod
+    def list_posts(blog_name:str) -> None:
+        """Lists all posts in the specified blog.
         
+        Args:
+            blog_name (str): The name of the blog to list posts from.
+        """
+        blog_path = Path("folder") / blog_name
+        if not blog_path.exists():
+            print(f"Blog '{blog_name}' does not exist.")
+            return
+        
+        for post_file in blog_path.glob("*.txt"):
+            with post_file.open("r", encoding="utf-8") as file:
+                print(file.read())
