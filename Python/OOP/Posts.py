@@ -26,18 +26,7 @@ class Posts:
         Args:
             blog_name (str): The name of the blog to which the post belongs.
         """
-        blog_exists = False
-        folder_path = Path("folder")
-        if folder_path.exists():
-            for blog in folder_path.iterdir():
-                if blog.is_dir():
-                    if blog.name == blog_name:
-                        blog_exists = True
-                        break
-        else:
-            print("No blogs found.")
-
-        if not blog_exists:
+        if not Blog.blog_exists(blog_name):
             print(f"Blog '{blog_name}' does not exist. Please create the blog first.")
             blog_name = input("Enter blog name: ")
             blog_description = input("Enter blog description: ")
