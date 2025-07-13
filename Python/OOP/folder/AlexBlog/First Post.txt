@@ -1,1 +1,0 @@
-First PostHello, I'm trying to make a post with OOP
