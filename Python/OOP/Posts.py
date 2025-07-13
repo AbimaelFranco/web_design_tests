@@ -6,7 +6,7 @@ from Blog import Blog
 class Posts:
     """A class to represent a collection of blog posts."""
 
-    def __init__(self, title:str, content:str, classification:Optional[str]=None):
+    def __init__(self, title:str, content:Optional[str]=None, classification:Optional[str]=None):
         """Initializes a new post with a title and content.
         
         Args:
@@ -37,6 +37,32 @@ class Posts:
         blog_path = Path("folder")/blog_name
         post_filename = f"{self.title.replace(' ', '_')}.txt"
         post_path = blog_path / post_filename
+        with post_path.open("w", encoding="utf-8") as file:
+            file.write(str(f"{self.title} \n"))
+            file.write(str(f"{self.classification}\n"))
+            file.write(str(f"{self.content}\n"))
+
+    def modify_post(self, blog_name:str, new_title:str, new_content:str, new_classification:Optional[str]=None) -> None:
+        """Modifies an existing post's title, content, and classification.
+        
+        Args:
+            blog_name (str): The name of the blog to which the post belongs.
+            new_title (str): The new title for the post.
+            new_content (str): The new content for the post.
+            new_classification (Optional[str]): The new classification for the post.
+        """
+        if not self.post_exists(blog_name, self.title):
+            print(f"Post '{self.title}' does not exist in blog '{blog_name}'.")
+            return
+        
+        blog_path = Path("folder") / blog_name
+        post_filename = f"{self.title.replace(' ', '_')}.txt"
+        post_path = blog_path / post_filename
+
+        self.title = new_title
+        self.content = new_content
+        self.classification = new_classification
+        
         with post_path.open("w", encoding="utf-8") as file:
             file.write(str(f"{self.title} \n"))
             file.write(str(f"{self.classification}\n"))

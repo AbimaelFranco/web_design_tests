@@ -28,7 +28,13 @@ def main() -> None:
         
         elif choice == '2':
             # Placeholder for modifying a post
-            print("Modify post functionality is not implemented yet.")
+            modify_post = input("Enter the title of the post to modify: ")
+            new_title = input("Enter new title: ")
+            new_content = input("Enter new content: ")
+            new_classification = input("Enter new classification (optional): ")
+            blog_name = input("Enter the blog name to which this post belongs: ")
+            post = Posts(modify_post)
+            post.modify_post(blog_name, new_title, new_content, new_classification)
         
         elif choice == '3':
             # Placeholder for deleting a post

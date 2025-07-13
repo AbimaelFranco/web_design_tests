@@ -1,3 +1,0 @@
-Blog Name: NewTest
-Description: Just a test
-Classification: 21
