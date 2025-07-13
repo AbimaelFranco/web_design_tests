@@ -1,7 +1,6 @@
 """This script contains the Blog class for managing blog posts."""
 from typing import Optional
 from pathlib import Path
-from Posts import Posts
 
 class Blog:
     """A class to represent a blog with posts."""
@@ -45,3 +44,14 @@ class Blog:
             blog_path.rmdir()
         else:
             print(f"Blog '{self.blog_name}' does not exist.")
+
+    @staticmethod
+    def list_blogs() -> None:
+        """Lists all blogs in the 'folder' directory."""
+        folder_path = Path("folder")
+        if folder_path.exists():
+            for blog in folder_path.iterdir():
+                if blog.is_dir():
+                    print(blog.name)
+        else:
+            print("No blogs found.")

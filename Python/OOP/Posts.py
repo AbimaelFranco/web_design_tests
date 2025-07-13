@@ -1,5 +1,7 @@
 """This script contains the Posts class for managing blog posts."""
 from typing import Optional
+from pathlib import Path
+from Blog import Blog
 
 class Posts:
     """A class to represent a collection of blog posts."""
@@ -18,3 +20,37 @@ class Posts:
     def __str__(self) -> str:
         """Returns a string representation of the post."""
         return f"Title: {self.title}\nContent: {self.content}\nClassification: {self.classification if self.classification else 'Unclassified'}"
+    
+    def create_post(self, blog_name:str) -> None:
+        """Creates a post file with the post's title and content.
+        Args:
+            blog_name (str): The name of the blog to which the post belongs.
+        """
+        blog_exists = False
+        folder_path = Path("folder")
+        if folder_path.exists():
+            for blog in folder_path.iterdir():
+                if blog.is_dir():
+                    if blog.name == blog_name:
+                        blog_exists = True
+                        break
+        else:
+            print("No blogs found.")
+
+        if not blog_exists:
+            print(f"Blog '{blog_name}' does not exist. Please create the blog first.")
+            blog_name = input("Enter blog name: ")
+            blog_description = input("Enter blog description: ")
+            blog_classification = input("Enter blog classification (optional): ")
+            blog = Blog(blog_name, blog_description, blog_classification)
+            blog.create_blog()
+
+        blog_path = Path("folder")/blog_name
+        post_filename = f"{self.title.replace(' ', '_')}.txt"
+        post_path = blog_path / post_filename
+        with post_path.open("w", encoding="utf-8") as file:
+            file.write(str(f"{self.title} \n"))
+            file.write(str(f"{self.classification}\n"))
+            file.write(str(f"{self.content}\n"))
+
+        
