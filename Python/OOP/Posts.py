@@ -42,4 +42,18 @@ class Posts:
             file.write(str(f"{self.classification}\n"))
             file.write(str(f"{self.content}\n"))
 
+    @staticmethod
+    def post_exists(blog_name:str, post_title:str) -> bool:
+        """Checks if a post exists in the specified blog.
+        
+        Args:
+            blog_name (str): The name of the blog.
+            post_title (str): The title of the post to check.
+        
+        Returns:
+            bool: True if the post exists, False otherwise.
+        """
+        blog_path = Path("folder") / blog_name
+        post_filename = f"{post_title.replace(' ', '_')}.txt"
+        return (blog_path / post_filename).exists()
         
