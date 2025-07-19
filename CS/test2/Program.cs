@@ -91,3 +91,43 @@ edades.Clear(); // Removes all key-value pairs from the dictionary
 ICollection<string> claves = edades.Keys; // Returns a collection of keys
 // Getting all values from a dictionary
 ICollection<int> valores = edades.Values; // Returns a collection of values
+
+// hashset
+/// <summary>
+/// In C#, a HashSet is a collection that contains only unique elements.
+/// It is unordered and offers fast lookup, insertion, and deletion.
+/// Useful when you need to avoid duplicates.
+/// </summary>
+
+hashset<string> colores = new hashset<string>();
+colores.Add("Rojo");
+colores.Add("Verde");
+colores.Add("Rojo"); // this element will be ignore
+
+// queue
+/// <summary>
+/// /// In C#, a Queue is a First-In-First-Out (FIFO) collection.
+/// The first element added is the first one to be removed.
+/// Use Enqueue() to add and Dequeue() to remove elements.
+/// </summary>
+
+Queue<string> queue = new Queue<string>();
+queue.Enqueue("First");
+queue.Enqueue("Second");
+
+string firstOut = queue.Dequeue();
+string peek = queue.Peek();
+
+// Stack
+/// <summary>
+/// In C#, a Stack is a Last-In-First-Out (LIFO) collection.
+/// The last element added is the first one to be removed.
+/// Use Push() to add and Pop() to remove elements.
+/// </summary>
+
+Stack<string> stack = new Stack<string>();
+stack.Push("Bottom");
+stack.Push("Top");
+
+string lastOut = stack.Pop();   // "Top"
+string peekTop = stack.Peek();  // "Bottom" (still in stack)
