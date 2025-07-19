@@ -24,3 +24,10 @@ else
 {
     Console.WriteLine("You are an adult.");
 }
+
+// Loop for
+Console.WriteLine("Your life was looking like this:");
+for (int i = 0; i <= age; i++)
+{
+    Console.WriteLine($"You had {i} years old");
+}
