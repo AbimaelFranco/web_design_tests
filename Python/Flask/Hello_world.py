@@ -42,5 +42,9 @@ def confirmacion():
         return render_template('confirmacion.html', **datos)
     return render_template('formulario.html')
 
+@app.route('/capacitor')
+def capacitor():
+    return render_template('capacitor.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
