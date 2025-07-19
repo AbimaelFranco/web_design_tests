@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿class Program
+{
+    static void Main()
+    {
+        Persona Alex = new Persona("Alexander", 24);
+        Alex.Saludar();
+
+        Mascota PerroAlex = new Mascota(Alex.Nombre, "perro", 2);
+        PerroAlex.Saludar();
+    }
+}
