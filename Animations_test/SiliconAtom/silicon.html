@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bohr Model — Silicon & Doping (Neon)</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="stage">
+        <header>
+            <div>
+                <h1>Bohr Model — Silicon atom → Lattice → N/P doping</h1>
+                <div style="font-size:12px;opacity:0.8">Steps: single atom → lattice sharing → N-doped (extra electron)
+                    → P-doped (hole)</div>
+            </div>
+            <div class="controls">
+                <button id="btn-atom" class="active">Single Atom</button>
+                <button id="btn-lattice">Lattice (covalent bonds)</button>
+                <button id="btn-ndope">N-type (donor)</button>
+                <button id="btn-pdope">P-type (acceptor)</button>
+                <button id="btn-play">Play</button>
+            </div>
+        </header>
+
+        <div style="margin-top:16px">
+            <svg id="viz" viewBox="0 0 1100 640" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+
+        <div class="caption">Tip: click Play for an automatic walkthrough. Use the buttons to inspect each step.</div>
+    </div>
+
+    <script src="animation.js"></script>
+</body>
+
+</html>
